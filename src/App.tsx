@@ -1,13 +1,17 @@
 import { Toaster } from "react-hot-toast";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import Home from "./Home";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        React + Tailwind boilerplate
-      </h1>
+    <QueryClientProvider client={queryClient}>
+      <Home />
       <Toaster />
-    </div>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 
